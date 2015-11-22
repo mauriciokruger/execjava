@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="developer" content="Mauricio Kruger">
+	<title>JavaScript do Mau</title>
+</head>
+<center>
+	<style type="text/css">
+		body{
+			background-color: #D4D4D4;
+		}
+		center{
+			margin-top: 200px;
+		}
+		input{
+			padding: 5px;
+			width: 70px;
+		}
+		#resultado{
+			font-size: 30px;
+			font-weight: bold;
+			color: blue;
+			margin-top: 15px;
+		}
+		button{
+			background-color: #000;
+			border-radius: 10px;
+			padding: 8px;
+			color: #fff;
+			font-weight: bold;
+		}
+	</style>
+	<script>
+		function randomeia_numeros() {
+			var dados = new Array();
+			dados.push(document.getElementById("valor1").value);
+			dados.push(document.getElementById("valor2").value);
+			dados.push(document.getElementById("valor3").value);
+			dados.push(document.getElementById("valor4").value);
+			dados.push(document.getElementById("valor5").value);
+			
+			dados.sort(function(dados){return Math.floor(Math.random()*10);})
+			console.log(dados);
+			document.getElementById("resultado").innerHTML = dados;
+		}
+	</script>
+	<input id="valor1" type="number" name="um" value="" placeholder="Primeiro">
+	<input id="valor2" type="number" name="dois" value="" placeholder="Segundo">
+	<input id="valor3" type="number" name="tres" value="" placeholder="Terceiro">
+	<input id="valor4" type="number" name="quatro" value="" placeholder="Quarto">
+	<input id="valor5" type="number" name="cinco" value="" placeholder="Quinto">
+
+	<button onclick="randomeia_numeros()">Randomizar</button>
+	
+	<div id="resultado">
+		
+	</div>
+
+</center>
+</body>
+</html>
+

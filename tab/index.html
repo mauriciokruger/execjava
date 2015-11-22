@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="developer" content="Mauricio Kruger">
+	<title>JavaScript do Mau</title>
+</head>
+<body onload="iniciar_script()">
+	<style type="text/css">
+		body{
+			background-color: #D4D4D4;
+		}
+		#ul_tabs{
+			margin-top: 200px;
+			width: 600px;
+			clear: both;
+		}
+		#ul_tabs li{
+			float:left;
+			width: 150px;
+			list-style: none;
+		}
+		#ul_tabs li a{
+			text-decoration: none;
+			color: red;
+			font-size: 20px;
+			font-weight: bold;
+		}
+		.dentro_tab{
+			width: 600px;
+			padding-top: 40px;
+			text-align: center;
+		}	
+		.ocultar{
+			display: none; 
+		}		
+	</style>
+	<script type="text/javascript">
+		var links_clicatab = new Array();
+		var id_pega_tab = new Array();
+		function iniciar_script(){
+			var tab_para_listar_itens=document.getElementById('ul_tabs').childNodes;
+			for(var i=0; i < tab_para_listar_itens.length; i++){
+				if( tab_para_listar_itens[i].nodeName=="LI"){
+					var tabLink = pegar_elemento_nome_tab(tab_para_listar_itens[i],'A');
+					var id=exibe_tab(tabLink.getAttribute('href'));
+					links_clicatab[id]=tabLink;
+					id_pega_tab[id]=document.getElementById(id);}}
+			var i=0;
+			for(var id in links_clicatab){
+				links_clicatab[id].onclick=exibir_tag;
+				if(i==0) links_clicatab[id].className='selected';
+				i++;} var i=0;
+			for(var id in id_pega_tab){
+				if(i != 0 ) id_pega_tab[id].className='dentro_tab ocultar';
+				i++;}}
+		function exibir_tag(){
+			var seleciona_id=exibe_tab( this.getAttribute('href'));
+			for(var id in id_pega_tab){
+				if(id == seleciona_id){
+					links_clicatab[id].className='selected';
+					id_pega_tab[id].className='dentro_tab';
+				} else{
+					links_clicatab[id].className='';
+					id_pega_tab[id].className='dentro_tab ocultar';
+				}}
+			return false;}
+		function pegar_elemento_nome_tab(element,nome_tag){
+			for (var i=0; i < element.childNodes.length; i++){
+				if (element.childNodes[i].nodeName==nome_tag) return element.childNodes[i];}}
+		function exibe_tab(url){
+			var soma_pos_click = url.lastIndexOf('#');
+			return url.substring(soma_pos_click + 1);}
+	</script>
+	<center>
+		<ul id="ul_tabs">
+			<li><a href="#primeira_tab">Primeira Tab</a></li>
+			<li><a href="#segunda_tab">Segunda Tab</a></li>
+			<li><a href="#terceira_tab">Terceira Tab</a></li>
+			<li><a href="#quarta_tab">Quarta Tab</a></li>
+		</ul>
+		<div class="dentro_tab" id="primeira_tab">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		</div>
+		<div class="dentro_tab" id="segunda_tab">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		</div>
+		<div class="dentro_tab" id="terceira_tab">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		</div>
+		<div class="dentro_tab" id="quarta_tab">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		</div>
+	</center>
+</body>
+</html>
+

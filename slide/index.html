@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="developer" content="Mauricio Kruger">
+	<title>JavaScript do Mau</title>
+</head>
+<body>
+	<html>
+	<head>
+		<style type="text/css">
+			body{
+				background-color: #D4D4D4;
+			}
+			center{
+				margin-top: 200px;
+			}
+		</style>
+		<center>
+			<script type="text/javascript">
+				function primeiro_slide(){
+					document.getElementById('joga_caminho_imagens').src="http://lorempixel.com/450/150/";
+					setTimeout("segundo_slide()", 2000)
+				}
+				function segundo_slide(){
+					document.getElementById('joga_caminho_imagens').src="http://lorempixel.com/450/200/";
+					setTimeout("terceiro_slide()", 2000)
+				}
+				function terceiro_slide(){
+					document.getElementById('joga_caminho_imagens').src="http://lorempixel.com/450/250/";
+					setTimeout("primeiro_slide()", 2000)
+				}
+			</script>
+			<body onLoad="primeiro_slide()">
+				<img id="joga_caminho_imagens">
+			</center>
+		</body>
+		</html>
+	</body>
+	</html>

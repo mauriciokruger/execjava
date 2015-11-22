@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="developer" content="Mauricio Kruger">
+	<title>JavaScript do Mau</title>
+</head>
+<center>
+	<style type="text/css">
+		body{
+			background-color: #D4D4D4;
+		}
+		center{
+			margin-top: 200px;
+		}
+		input{
+			padding: 5px;
+			width: 100px;
+		}
+		#resultado{
+			font-size: 30px;
+			font-weight: bold;
+			color: blue;
+			margin-top: 15px;
+		}
+		button{
+			background-color: #000;
+			border-radius: 10px;
+			padding: 8px;
+			color: #fff;
+			font-weight: bold;
+		}
+	</style>
+	<script>
+		function busca_cep() {
+			var cep = document.getElementById("cep1").value;
+			if(cep == "89700000"){
+				document.getElementById("resultado").innerHTML = "Concórdia";
+			}else{
+				document.getElementById("resultado").innerHTML = "Cep não encontrado";
+			}
+			
+		}
+	</script>
+	<input id="cep1" type="number" name="cep" value="" placeholder="CEP">
+	<button onclick="busca_cep()">Buscar</button>
+	<div id="resultado">
+	</div>
+</center>
+</body>
+</html>
+
